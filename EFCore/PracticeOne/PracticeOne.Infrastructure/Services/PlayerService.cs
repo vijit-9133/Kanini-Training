@@ -24,5 +24,19 @@ namespace PracticeOne.Infrastructure.Services
         {
             return await _playerRepo.Create(player);
         }
+       
+        public async Task<Player> GetById(int id)
+        {
+            return await _playerRepo.GetById(id);
+        }
+        public async Task<Player> Update(Player player)
+        {
+            return await _playerRepo.Update(player);
+        }
+        public async Task<bool> Delete(int id)
+        {
+            return await _playerRepo.Delete(id);
+        }
+
     }
 }

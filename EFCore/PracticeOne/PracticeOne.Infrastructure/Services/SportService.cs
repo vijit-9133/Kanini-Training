@@ -1,5 +1,6 @@
 ﻿using PracticeOne.Application.Interface;
 using PracticeOne.Domain;
+using PracticeOne.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,18 @@ namespace PracticeOne.Infrastructure.Services
         public async Task<Sport> Create(Sport sport)
         {
             return await _sportRepo.Create(sport);
+        }
+        public async Task<Sport> GetById(int id)
+        {
+            return await _sportRepo.GetById(id);
+        }
+        public async Task<Sport> Update(Sport sport)
+        {
+            return await _sportRepo.Update(sport);
+        }
+        public async Task<bool> Delete(int id)
+        {
+            return await _sportRepo.Delete(id);
         }
     }
 }

@@ -30,5 +30,33 @@ namespace PracticeOne.Infrastructure.Repository
         {
             return await _context.Sports.ToListAsync();
         }
+        public async Task<Sport> GetById(int id)
+        {
+            return await _context.Sports.FirstOrDefaultAsync(s => s.SportId == id) ?? throw new Exception("Sport not found");
+        }
+        public async Task<Sport> Update(Sport sport)
+        {
+            var existingSport = await _context.Sports.FindAsync(sport.SportId);
+            if (existingSport == null)
+            {
+                throw new Exception("Sport not found");
+            }
+            existingSport.Name = sport.Name;
+            existingSport.NumberOfPlayers = sport.NumberOfPlayers;
+            _context.Sports.Update(existingSport);
+            await _context.SaveChangesAsync();
+            return existingSport;
+        }
+        public async Task<bool> Delete(int id)
+        {
+            var sport = await _context.Sports.FindAsync(id);
+            if (sport == null)
+            {
+                return false;
+            }
+            _context.Sports.Remove(sport);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

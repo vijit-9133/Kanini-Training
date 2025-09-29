@@ -32,5 +32,65 @@ namespace PracticeOne.Controllers
             await _playerService.Create(player);
             return CreatedAtAction(nameof(GetAll), new { id = player.PlayerId }, player);
         }
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(Player), 200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var player = await _playerService.GetById(id);
+
+            if (player == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(player);
+        }
+        [HttpPut("{id}")] 
+        [ProducesResponseType(typeof(Player), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Update(int id, [FromBody] PlayerUpdateDTO dto) 
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var player = new Player
+            {
+                PlayerId = id, 
+                Name = dto.Name,
+                Age = dto.Age,
+                IsCaptain = dto.IsCaptain 
+            };
+
+            var updatedPlayer = await _playerService.Update(player);
+
+            if (updatedPlayer == null)
+            {
+                return NotFound(); 
+            }
+
+            return Ok(updatedPlayer); 
+        }
+
+       
+        [HttpDelete("{id}")] 
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _playerService.Delete(id);
+
+            if (!result)
+            {
+                return NotFound();
+            }
+
+            return Ok(); 
+        }
     }
+
 }
+

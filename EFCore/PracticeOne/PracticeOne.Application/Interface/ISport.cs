@@ -14,6 +14,9 @@ namespace PracticeOne.Application.Interface
 
        
         Task<IEnumerable<Sport>> GetAll();
+        Task<Sport> GetById(int id);
+        Task<Sport> Update(Sport sport);
+        Task<bool> Delete(int id);
     }
 }
 
