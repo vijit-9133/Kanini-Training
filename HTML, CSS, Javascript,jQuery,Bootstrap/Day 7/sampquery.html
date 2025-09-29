@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Sample</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p id="para">Welcome to jQuery</p>
+    <h1 class="head"> Day 7 - Introduction to jQuery</h1>
+    <input type="text" name="email"/>
+    <button id="button1">Click ME</button>
+    <button id="button2">Click for fade</button>
+    <div id="box" style="width: 200px;height: 100px;background-color: lightcoral;"></div>
+    <form id="form1">
+        <input type="text" id="name" placeholder="Enter your name:"/>
+        <input type="submit" value="login"/>
+        <p id="res">Text will appear here</p>
+    </form>
+    <button id="btn1"> Click me for api</button>
+    <div id="list">
+    </div>
+    <div id="table">
+
+    </div>
+   <script>
+        $(document).ready(function(){
+            $("#form1").submit(function(e){
+              e.preventDefault();
+              let user = $("#name").val();
+                console.log("WOrking");
+                console.log("Welcome"+user);
+                $("#res").text("Welcome"+user);
+
+            })
+            $("#para").css("color","blueviolet");
+            $(".head").css("text-align","center");
+            $("input[name='email']").val("training");
+            $("#button1").click(function(){
+                alert("Hi Good Morning");
+                $("#para").text("Button is clicked");
+                
+            })
+            $("#button2").click(function(){
+                $("#box").fadeOut(2000);
+            })
+            $("#btn1").click(function() {
+            $.ajax({
+            url: "https://jsonplaceholder.typicode.com/posts",
+            method: "GET",
+            success: function(data) {
+            let table = `
+                    <table border="1" cellpadding="5" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Body</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+            data.forEach(post => {
+                    table += `
+                        <tr>
+                            <td>${post.userId}</td>
+                            <td>${post.id}</td>
+                            <td>${post.title}</td>
+                            <td>${post.body}</td>
+                        </tr>
+                    `;
+            });
+            table += `
+                        </tbody>
+                    </table>
+                `;
+            $("#list").html(table);
+            },
+            error: function(error) {
+            console.error("Problem occurred:", error);
+            $("#list").html("<p>Error loading data.</p>");
+        }
+    });
+});
+
+    // $.get("https://jsonplaceholder.typicode.com/posts", function(data) {
+    //     let res = "<ul>";
+    //     data.forEach(post => {
+    //         res += `<li>${post.title}</li>`;
+    //     });
+    //     res += "</ul>";
+    //     $("#list").html(res);
+    // });
+});
+
+</script>
+    
+</body>
+</html>

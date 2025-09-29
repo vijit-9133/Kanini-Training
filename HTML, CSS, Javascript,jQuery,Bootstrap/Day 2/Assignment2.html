@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+th,td,a{
+    color: antiquewhite;
+}
+#regtable{
+ background-image: url(abstract-gradient-background-with-green-color-spotlight-pattern-illustration-free-vector.jpg);
+}
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+button{
+    padding: 10px 30px; 
+  margin-left: 50%; 
+  transform: translateX(-50%);
+  font-size: 16px; 
+  border-radius: 50px; 
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+</style>
+<body>
+    <h1 id="head_1" style="text-align: center; padding: 20px; background-color: bisque ;">Jasper Sports Academy</h1>
+    <form id="form1">
+    <fieldset>
+    <legend style="background-image:url(pencil-cartoon-illustration-vector.jpg);"><h2>Player Registration Details </h2></legend>
+    <center>
+    <table id="regtable" border="1px" style="border-collapse: collapse;">
+        <tr><th>Date of Registration</th>
+        <td><input type="date" value="dor" id="DOR"></td></tr>
+        <tr><th>Name</th>
+        <td><input type= "text" placeholder=" Enter your full name:" id="Name" required pattern="[A-Za-z ]+"></td></tr>
+        <tr><th>Age</th>
+        <td><input type= "number" placeholder="Enter your age:" id="Age" min="3" required ></td></tr>
+        <tr><th><label for="Stype">Sports Type</label></th>
+        <td><input type="radio" id="Stype" name="indoor" value="Indoor">Indoor &nbsp;
+<input type="radio" id="Stype1" name="indoor" value="Outdoor">Outdoor</td></tr>
+        <tr><th>Phone Number:</th>
+        <td><input type="tel" id="tel1" name="Telephone" placeholder="Enter your phone number:" pattern="[6-9]{1}[0-9]{9}"></td></tr>
+        <tr><th>E-mail:</th>
+        <td><input type="email" id="mail" name="Mail" placeholder="Enter your e-mail id:" required></td></tr>
+        <tr><th>Address:</th>
+        <td><textarea id="address" name="Address" rows="4" cols="24" required></textarea></td></tr>
+        <tr><th>Number of players:</th><td><select name=nop id="NOP">--SELECT--
+        <option disabled selected value>--SELECT--</option>
+        <option value="addition">Single</option>
+        <option value="subtraction">Double</option>
+        <option value="multiplication">Multiple</option></select></td></tr>
+        <tr><th>Location</th>
+        <td><input type= "text" placeholder=" Enter the location:" id="Location" required></td></tr>
+        <tr><th style="text-align: center;">Sports (with duration)</th><td style="text-align: center;">Sports Fee</td></tr>
+        <tr><th rowspan="4" style="text-align: left;"><input type="checkbox" id="cricket1" name="sports" value="Cricket (3 Months)"><label for="cricket1"> Cricket (3 Months)</label><br><input type="checkbox" name="sports" id="basket1" value="Basket Ball (6 Months)"><label for="basket1"> Basket Ball (6 Months)</label><br><input type="checkbox" name="sports" id="table1" value="Table Tennis (9 Months)"><label for="table1"> Table Tennis (9 Months)</label><br></th></tr>
+        <tr><td>Rs 20000/-</td></tr> 
+        <tr><td>Rs 15000/-</td></tr> 
+        <tr><td>Rs 35000/-</td></tr> 
+        <tr><th colspan="2" style="text-align: left;"><label for="myfile">Birth Certificate (jpeg, pdf)</label>
+  <input type="file" id="myfile" name="myfile"><br></th> &nbsp;</tr>
+  <tr><th colspan="2" style="text-align: left;"><a href="timings.html" target="_self">Schedule</a></th></tr>
+  <tr><th>Deposit</th><td>
+<input type="range" id="deposit" min="1000" max="20000" required></td></tr>
+<tr><td colspan="2"><span title=" Only on registration for more than 6
+months">*A discount of 15% will be applied
+on total amount on registering for
+more than 6 months</span></td></tr>
+
+        </table></fieldset></center>
+        <button type="submit" style="padding: 10px; margin-left: 50%;size: 70px;">Enroll</button>
+</fieldset>
+
+</form>
+</body>
+</html>

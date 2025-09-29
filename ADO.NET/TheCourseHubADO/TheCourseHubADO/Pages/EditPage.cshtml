@@ -1,0 +1,90 @@
+﻿@page
+@model TheCourseHubADO.Pages.EditPageModel
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+            <h2 class="mb-0">Edit Student</h2>
+        </div>
+        <div class="card-body p-4">
+
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    @Model.Message
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <form method="post">
+                <input type="hidden" asp-for="Student.StudId" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Student.Fname" class="form-label fw-bold">First Name</label>
+                        <input asp-for="Student.Fname" class="form-control" placeholder="Enter first name" />
+                        <span asp-validation-for="Student.Fname" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.Lname" class="form-label fw-bold">Last Name</label>
+                        <input asp-for="Student.Lname" class="form-control" placeholder="Enter last name" />
+                        <span asp-validation-for="Student.Lname" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.Email" class="form-label fw-bold">Email</label>
+                        <input asp-for="Student.Email" class="form-control" placeholder="Enter email address" />
+                        <span asp-validation-for="Student.Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.EnrollmentDate" class="form-label fw-bold">Enrollment Date</label>
+                        <input asp-for="Student.EnrollmentDate" type="date" class="form-control" />
+                        <span asp-validation-for="Student.EnrollmentDate" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.DOB" class="form-label fw-bold">Date of Birth</label>
+                        <input asp-for="Student.DOB" type="date" class="form-control" />
+                        <span asp-validation-for="Student.DOB" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.City" class="form-label fw-bold">City</label>
+                        <input asp-for="Student.City" class="form-control" placeholder="Enter city" />
+                        <span asp-validation-for="Student.City" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.Country" class="form-label fw-bold">Country</label>
+                        <input asp-for="Student.Country" class="form-control" placeholder="Enter country" />
+                        <span asp-validation-for="Student.Country" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Student.ActiveCourseCount" class="form-label fw-bold">Active Course Count</label>
+                        <input asp-for="Student.ActiveCourseCount" type="number" class="form-control" placeholder="0" />
+                        <span asp-validation-for="Student.ActiveCourseCount" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-page="/Index" class="btn btn-secondary px-4">
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary px-4">
+                        Update Student
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quote Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+  <div class="card text-center shadow" style="max-width: 500px;">
+    <div class="card-body">
+      <blockquote class="blockquote mb-4">
+        <p id="quoteText">Click the button to see a quote.</p>
+      </blockquote>
+      <button class="btn btn-primary me-2" onclick="newQuote()">New Quote</button>
+      <button class="btn btn-outline-secondary" onclick="copyQuote()">Copy</button>
+    </div>
+  </div>
+
+  <script>
+    const quotes = [
+      "The only way to do great work is to love what you do. – Steve Jobs",
+      "Success is not in what you have, but who you are. – Bo Bennett",
+      "Believe you can and you're halfway there. – Theodore Roosevelt",
+      "Do one thing every day that scares you. – Eleanor Roosevelt",
+      "What you get by achieving your goals is not as important as what you become by achieving your goals. – Zig Ziglar"
+    ];
+
+    function newQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quoteText').textContent = quotes[randomIndex];
+    }
+
+    function copyQuote() {
+      const text = document.getElementById('quoteText').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Quote copied to clipboard!');
+      });
+    }
+  </script>
+
+</body>
+</html>

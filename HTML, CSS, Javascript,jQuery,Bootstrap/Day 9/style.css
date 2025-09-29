@@ -1,0 +1,157 @@
+
+.webpage-name {
+    font-family: 'Pacifico', cursive; 
+    font-size: 1.8rem; 
+    color: #007bff; 
+}
+
+
+.navbar-brand img {
+    height: 35px; 
+    width: auto; 
+   
+}
+
+#welcomeMessage {
+    font-weight: bold;
+    color: #28a745; 
+    font-size: 1.1rem; 
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+}
+
+body {
+    margin-top: 0 !important; 
+
+.navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+}
+
+
+#backToTopBtn {
+    position: fixed; 
+    bottom: 30px;
+    right: 30px; 
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    transition: opacity 0.3s ease-in-out; 
+}
+
+#courseHighlightsCarousel .carousel-inner {
+    max-height: 350px;
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#courseHighlightsCarousel .carousel-item img {
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#courseHighlightsCarousel .carousel-caption {
+    padding-bottom: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    text-align: left;
+    left: 10%;
+    right: auto;
+    max-width: 60%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
+}
+
+@media (max-width: 767.98px) {
+    #courseHighlightsCarousel .carousel-caption h3 {
+        font-size: 1.8rem;
+    }
+    #courseHighlightsCarousel .carousel-caption p {
+        font-size: 0.9rem;
+        display: none;
+    }
+    #courseHighlightsCarousel .carousel-caption .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    #courseHighlightsCarousel .carousel-inner,
+    #courseHighlightsCarousel .carousel-item img {
+        max-height: 250px;
+        height: 250px;
+    }
+
+    #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+#courseCardsCarousel .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid #e0e0e0; 
+    position: relative; 
+    z-index: 1; 
+}
+
+#courseCardsCarousel .card:hover {
+    
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 2; 
+}
+#courseCardsCarousel .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#courseCardsCarousel .card-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+#courseCardsCarousel .card-text {
+    font-size: 0.95rem;
+    color: #555;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+#courseCardsCarousel .list-group-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+#courseCardsCarousel .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#courseCardsCarousel .card-body .mt-auto {
+    margin-top: auto !important;
+}
+
+#courseCardsCarousel .carousel-control-prev,
+#courseCardsCarousel .carousel-control-next {
+    width: 5%;
+}
+#courseHighlightsCarousel .carousel-control-prev-icon,
+#courseHighlightsCarousel .carousel-control-next-icon,
+#courseCardsCarousel .carousel-control-prev-icon,
+#courseCardsCarousel .carousel-control-next-icon {
+    filter: grayscale(100%) brightness(60%)
+}

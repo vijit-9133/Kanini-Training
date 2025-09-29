@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+</head>
+<body>
+    <div >Capital Blood Bank Centre</h1>
+        <div>
+            <button id="getdata" onclick="Display()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                Get Data From API
+            </button>
+            <p id="displaymessage" class="text-center text-green-600 font-semibold"></p>
+        </div>
+
+        <form id="form1" >
+            <fieldset">
+                <legend >Search Donor Details</legend>
+                <table id="detailstable" class="min-w-full">
+                    <tr>
+                        <th>Blood Group</th>
+                        <td>
+                            <select id="bloodgroup" name="bloodgroup"
+                                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm">
+                                <option value="" disabled selected>--Select--</option>
+                                <option value="O+ve">O+ve</option>
+                                <option value="O-ve">O-ve</option>
+                                <option value="A+ve">A+ve</option>
+                                <option value="A-ve">A-ve</option>
+                                <option value="B+ve">B+ve</option>
+                                <option value="B-ve">B-ve</option>
+                                <option value="AB+ve">AB+ve</option>
+                                <option value="AB-ve">AB-ve</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="city">City</label></th>
+                        <td>
+                            <input type="text" id="city" placeholder="Enter the city name"
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </td>
+                    </tr>
+                </table>
+                <div class="mt-6">
+                    <button type="button" id="search" onclick="blooddonors()"
+                            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Search Blood Donor(s)
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+
+        <div id="searchResults" class="mt-8">
+        </div>
+    </div>
+
+    <script src="Assessment2.js"></script>
+</body>
+</html>

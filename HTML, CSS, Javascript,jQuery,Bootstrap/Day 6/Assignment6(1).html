@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<input type="number" id="uid" placeholder="Enter User ID" />
+<button id="btn1">Get User</button>
+<br>
+<p id="para">The title will be displayed here.</p>
+
+<script>
+
+function getUser(id, callback) {
+    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(response => callback(null, response.data))
+        .catch(error => callback(error, null));
+}
+
+document.getElementById("btn1").addEventListener("click", function() {
+    const userId = document.getElementById("uid").value;
+    
+    if (!userId) {
+        alert("Please enter a user ID");
+        return;
+    }
+
+    getUser(userId, function(err, user) {
+        if (err) {
+            console.error("Error:", err.message);
+        } else {
+            console.log("User name:", user.name);
+        }
+        document.getElementById("para").innerHTML =("The user name is:"+user.name);
+    });
+});
+</script>
+
+</body>
+</html>

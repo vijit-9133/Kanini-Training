@@ -1,0 +1,6 @@
+@CodeFirstManytoMany_HostAddress = http://localhost:5275
+
+GET {{CodeFirstManytoMany_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

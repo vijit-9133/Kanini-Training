@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment7(2)</title>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  background: linear-gradient(135deg, #e6ffe6, #ccffcc, #b3ffb3);
+  border: 1px solid #fcb69f;
+  border-collapse: collapse;
+  width: 50%;
+  box-shadow: 2px 2px 10px rgba(144, 238, 144, 0.3);
+  border-radius: 8px;
+}
+/* .hf{
+    background-color: red;
+}
+.gf{
+    background-color: yellow;
+} */
+</style>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+     $('.hf').css({
+      'background-color': 'red',
+      'font-weight': 'bold'
+    });
+
+    // Gryffindor (yellow background, bold text)
+    $('.gf').css({
+      'background-color': 'yellow',
+      'font-weight': 'bold'
+    });
+});
+</script>
+    <div>
+        <h1 style="text-align: center;"> Hogwarts school of Witchcraft and Wizardry</h1>
+       <center>
+        <form id="form1" onsubmit="handleSubmit(event)">
+        <table id="offertable" border="1px solid" style=" border-collapse: collapse;">
+        <tr ><th colspan="2" style="text-align: center;">Sign Up</th>
+        <tr><th>Name</th>
+            <th>House Name</th></tr>
+        <tr><td class="hf">Ernie Macmillan</td>
+            <td class="hf">Hufflepuff</td></tr>
+        <tr><td>Terry Boot</td>            
+        <td>Ravenclaw</td></tr>
+        <tr><td class="gf">Neville Longbottom </td>
+            <td class="gf">Gryffindor</td></tr>
+        <tr><td>Mandy Brocklehurst</td>
+            <td>Ravenclaw</td></tr>
+            <tr><td class="hf">Justin Finch Fletchley</td>
+            <td class="hf">Hufflepuff</td></tr>
+        <tr><td>Draco Malpuff</td>            
+        <td>Slytherin</td></tr>
+        <tr><td>Vincent Craby</td>
+            <td>Slytherin</td></tr>
+        <tr><td class="gf">Hermoine Granger</td>
+            <td class="gf">Gryffindor</td></tr>
+            <tr><td class="hf">Justin Flinch Fletchley</td>
+            <td class="hf">Hufflepuff</td></tr>
+            <tr><td>Terry Boot</td>            
+        <td>Ravenclaw</td></tr>
+        <tr><td class="gf">Neville Longbottom </td>
+            <td class="gf">Gryffindor</td></tr>
+        <tr><td>Mandy Brocklehurst</td>
+            <td>Ravenclaw</td></tr>
+            <tr><td>Justin Finch Fletchley</td>
+            <td >Hufflepuff</td></tr>
+        <tr><td>Draco Malpuff</td>            
+        <td>Slytherin</td></tr>
+        <tr><td>Vincent Craby</td>
+            <td>Slytherin</td></tr>
+        <tr><td class="gf">Hermoine Granger</td>
+            <td class="gf">Gryffindor</td></tr>
+            <tr><td>Justin Flinch Fletchley</td>
+            <td >Hufflepuff</td></tr>
+
+            
+
+    </table>
+</body>
+</html>

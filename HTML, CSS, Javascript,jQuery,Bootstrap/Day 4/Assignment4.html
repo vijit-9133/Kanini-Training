@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+    
+
+</head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table {
+  background: linear-gradient(135deg, #fff1f9, #ffe3e3, #ffd6d6);
+  border: 1px solid #fcb69f;
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: 2px 2px 10px rgba(252, 182, 159, 0.3);
+  border-radius: 8px;
+}
+
+
+th, td {
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+  font-size: 20px;
+}
+
+th,td{
+    color: black;
+}
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.flexbox1 {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  background: linear-gradient(-45deg, #ffecd2, #fcb69f, #ffbeff);
+  background-size: 400% 400%; 
+  animation: gradient 5s ease infinite;
+  border: 1px solid #ccc;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.flexbox1 img {
+  width: 200px;
+  height: auto;
+  border: 2px solid;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+.button1 {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.button1:hover {
+ background-color: #ff85c1;
+  box-shadow: 0 0 15px #ff85c1, 0 0 30px #ff85c1;
+}
+
+
+</style>
+
+<body>
+    <h1 id="head_1" style="text-align: center; padding: 20px ;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: bold;background-color:#ffbeff; font-size: 40px;">One Stop Mobile Accessories</h1>
+    <form id="form1">
+    <div class="flexbox1">
+  <img src="img1.jpeg" alt="Image 1">
+  <img src="img2.jpeg" alt="Image 2">
+  <img src="img3.jpeg" alt="Image 3">
+</div>
+    <fieldset><center>
+    <table id="offertable" border="1px solid" style=" border-collapse: collapse;">
+        <tr ><th colspan="2" style="text-align: center;">Personal Details</th>
+        <tr><th>Name</th>
+        <td><input type= "text" placeholder=" Enter your full name:" id="Name" required pattern="[A-Za-z ]+"></td></tr>
+        <tr><th>Phone Number</th>
+        <td><input type= "tel" placeholder="Enter your phone number:" id="Phone"  required ></td></tr>
+        <tr><th>E-mail:</th>
+        <td><input type="email" id="mail" name="Mail" placeholder="Enter your e-mail id:" required></td></tr>
+        <tr><th>Delivery Address:</th>
+        <td><textarea id="address" name="Address" rows="4" cols="24" required></textarea></td></tr>
+        <tr ><th colspan="2">Combo Offers (Save upto Rs 400 on each combo!!)</th>
+        <tr ><th rowspan="5" >
+        <input type="checkbox" id="c1" name="combo1">San Disk 32 GB Macro SDHC <br> Memory Card + ixCC USB Cable<br><br><br><br>
+        <input type="checkbox" id="c2" name="combo2">San Disk Cruzer Blade 32 GB Pen  <br> + Samsung Type B 15W Travel Adapter<br><br><br><br>
+        <input type="checkbox" id="c3" name="combo3">Sony Headphones with Bass Boost, Noise  <br> Cancellation +  San Disk 32 GB Memory Card <br><br><br><br>
+        <input type="checkbox" id="c4" name="combo4">M Tow Phone Car Mount + <br> Memory Card + ixCC USB Cable<br><br><br><br>
+        <input type="checkbox" id="c5" name="combo5">Tribit goSoundXPro Speaker + <br> 32 GB Memory Card<br><br><br>
+        </th>
+        <td>Rs 799/- Only</td></tr> 
+        <tr><td>Rs 899/- Only</td></tr> 
+        <tr><td>Rs 999/- Only</td></tr>
+        <tr><td>Rs 299/- Only</td></tr> 
+        <tr><td>Rs 1199/- Only</td></tr> 
+        <tr ><th colspan="2" style="text-align: center;">*Enjoy a discount of 20% on orders above Rs 2000 and above!!</th>
+        </tr></table></center>
+        
+      
+</fieldset></form>
+<center>
+    <br>
+    <br>
+    
+<button id="submit" class="button1"  name="order" type="button" onclick="order()">Order Now</button>
+<button type="button" class="button1" id="reset" onclick="reset()">Next Order</button>
+
+<p id="summary" style="font-weight: bold; color: royalblue;"></p>
+</center>
+
+<script src="Assignment4.js" defer></script>
+
+
+</body>
+</html>

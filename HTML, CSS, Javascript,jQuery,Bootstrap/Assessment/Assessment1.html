@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book your tour</title>
+<style>
+    h1{
+        color: #FF0000;
+        font-weight: bold;
+        font-style: italic;
+    }
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table {
+  background: linear-gradient(to bottom, #e0f2f7, #b3e5fc);
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: 2px 2px 10px rgba(252, 182, 159, 0.3);
+  border-radius: 8px;
+}
+
+
+th, td {
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+  font-size: 20px;
+}
+
+th,td{
+    color: black;
+}
+.button1 {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black, 0 0 20px black;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+</style>
+</head>
+<body>
+    <h1 style="text-align:center;">Online Tour Package Reservation</h1>
+    <br>  <hr> <br>
+    <form id="form1">
+    <fieldset><center>
+    <table id="detailstable" border="1px solid" style=" border-collapse: collapse;">
+        <tr><th><label for="Name" name="Customer Name">Name</label></th>
+        <td><input type= "text" placeholder=" Customer name:" id="Name" required pattern="[A-Za-z ]+"></td></tr>
+        <tr><th><label for="mobile" name="Mobile Number">Mobile Number</label></th>
+        <td><input type= "text" placeholder="Enter your phone number:" id="mobile"  required pattern="^[789]\d{9}$" ></td></tr>
+        <tr><th><label for="aadhar" name="Aadhar Number">Aadhar Number</label></th>
+        <td><input type= "text" placeholder="Enter your aadhar number:" id="aadhar"  required pattern="^[1-9]\d{11}$"></td></tr>
+        <tr><th><label for="checkindate" name="Date of Check in">Date of check-in:</label></th>
+        <td><input type= "text" placeholder="dd/MM/yyyy" id="checkindate"  required ></td></tr>
+        <tr><th><label for="packagetype" name="Package Type">Package type</label></th>
+        <td><select id="packagetype">
+            <option value="" disabled selected>Select the package type</option>
+            <option value="1 Night & 2 Days">1 Night & 2 Days</option>
+            <option value="2 Night & 3 Days">2 Night & 3 Days</option>
+            <option value="3 Night & 4 Days">3 Night & 4 Days</option>
+            <option value="4 Night & 5 Days">4 Night & 5 Days</option>
+            <option value="5 Night & 6 Days">5 Night & 6 Days</option>
+        </select></td></tr>
+        <tr><th><label for="adults" name="Number of Adults">Number of Adults </label></th>
+        <td><input type="number" id="adults"  placeholder="Enter the number of adults:" required></td></tr>
+        <tr><th><label for="children" name="Number of Children">Number of Children </label></th>
+        <td><input type="number" id="children" name="children" placeholder="Enter the number of children:" required></td></tr>
+        <tr><th><label for="paymentmode">Payment Mode</label></th>
+        <td><input type="radio" id="CC" name="paymentmode1"  required></input>
+    <label for="CC">CC</label>
+<input type="radio" id="DC" name="paymentmode1"  required></input>
+    <label for="DC">DC</label></tr>
+        <tr><th><label for="cardnumber">Card Number</label></th>
+        <td><input type= "text" placeholder="Enter your card number:" id="cardnumber" name="cardnumber" required pattern="^[3-5]\d{15}$"></td></tr>
+        <tr><th><label for="cvv"> CVV Number</label></th>
+        <td><input type= "number" placeholder="Enter your CVV number:" id="cvv" name="cvv" required pattern="^\d{3}$" ></td></tr>
+        <tr><td colspan="2" style="text-align:center";><button id="submit"class="button1" name="submit" type="submit">Pay</button> &nbsp;&nbsp;
+        <button class="button1"id="reset" name="reset" type="reset">Clear</button></td></tr>
+        </table></center>    
+</fieldset></form>
+    <table id="detsils" border="1px solid" style=" border-collapse: collapse;">
+        <tr><th colspan="4"style="text-align: center;">Tour Package Details</th></tr>
+        <tr><th>Package Type</th><th>Charges Per Type(in Rs)</th><th>No. of visitors allowed</th><th>Extra One Person Charges (in Rs)</th></tr>
+        <tr><th>1 Night & 2 Days</th><th>11,000</th><th>2</th><th>3066</th></tr>
+        <tr><th>2 Night & 3 Days</th><th>20,000</th><th>3</th><th>3500</th></tr>
+        <tr><th>3 Night & 4 Days</th><th>29,000</th><th>3</th><th>3500</th></tr>
+        <tr><th>4 Night & 5 Days</th><th>37,000</th><th>4</th><th>4000</th></tr>
+        <tr><th>5 Night & 6 Days</th><th>45,000</th><th>4</th><th>4000</th></tr>
+       </table>
+    
+</body>
+</html>

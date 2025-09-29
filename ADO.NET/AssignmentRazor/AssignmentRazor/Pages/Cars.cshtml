@@ -1,0 +1,120 @@
+﻿@page
+@model AssignmentRazor.Pages.CarsModel
+@{
+    <h1>List of Cars</h1>
+    <table class="table">
+        <thead class="table-striped">
+            <tr>
+                <th>CarId</th>
+                <th>CarName</th>
+                <th>CarPrice</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cars)
+            {
+                <tr>
+                    <td>@item.Carid</td>
+                    <td>@item.Carname</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            /* Removed flexbox properties to allow for normal page flow */
+            margin: 0;
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px auto; /* Centers the form horizontally and adds spacing */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box; /* Ensures padding doesn't affect total width */
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-image: linear-gradient(to right, #007bff, #0056b3);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+        .message-span {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #28a745; /* Example success color */
+        }
+    </style>
+<div class="form-container">
+    <h2>Car Details Form</h2>
+    <form method="post">
+        <div class="form-group">
+            <label for="proid">CarId</label>
+            <input type="text" asp-for="Carid" />
+        </div>
+        <div class="form-group">
+            <label for="Name">Car Name</label>
+            <input type="text" asp-for="Carname" />
+        </div>
+        <div class="form-group">
+            <label for="price">Car Price</label>
+            <input type="text" asp-for="price" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <span class="message-span">@Model.Message</span>
+</div>
+}

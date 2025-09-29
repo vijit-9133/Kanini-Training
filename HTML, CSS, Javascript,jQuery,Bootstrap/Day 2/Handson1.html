@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+
+.image-row {
+  display: flex;
+  justify-content: center; /* center them horizontally */
+  align-items: center;     /* vertically align if needed */
+  gap: 40px;               /* space between the images */
+  margin-top: 50px;
+  border: 2px solid #333;
+   border-radius: 10px;              /* Optional: rounded corners */
+  width: fit-content; 
+  margin: 50px auto;
+}
+
+.image-row img {
+  width: 120px;
+  height: 160px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.image-row img:hover {
+  transform: scale(1.05); /* slight zoom effect on hover */
+}
+</style>
+</style>
+<body>
+    <h1 id="head1" style="text-align:center">CALCULATOR</h1>
+    <img src="calci.jpeg" id="calcimg" width="350px" height="200px" style="display: block;margin: auto;"/>
+<form id="form1">
+    <fieldset>
+<legend style="display: inline-block; width: 200px; text-align: center">Simple Calculator</legend>
+<table border="0" align="center">
+    <tr><th>Input Value 1:</th>
+    <td><input type="text" name="val1" id="val1"/></td></tr>
+    <tr><th>Input Value 2:</th>
+    <td><input type="text" name="val2" id="val2"/></td></tr>
+   <tr> <th style="text-align: left;">Result:</th>
+    <td><input type="text" name="val3" id="val3" readonly/></td></tr>
+    <tr>
+        <th style="text-align: left;">Operation</th>
+        <td><select name=ops id="ops">Choose an operation
+        <option disabled selected value>Choose an option</option>
+        <option value="addition">Addition</option>
+        <option value="subtraction">Subtraction</option>
+        <option value="multiplication">Multiplication</option>
+        <option value="division">Division</option></select></td>
+
+
+    </tr>
+    
+</table>
+</fieldset>
+</form>
+<div class="image-row">
+  <img src="Submit.jpeg" alt="Submit" onclick="result()" />
+  <img src="reset.png" alt="Reset" onclick="reset()" />
+</div>
+
+
+<script>
+    function result(){
+        
+        let n1= Number(document.getElementById("val1").value)
+        let n2= Number(document.getElementById("val2").value)
+        let op= document.getElementById("ops").value
+        let res = null
+        switch(op){
+            case "addition":
+                res = n1 + n2
+                break;
+            case "subtraction":
+                res = n1 - n2
+                break;
+            case "multiplication":
+                res = n1 * n2
+                break;
+            case "division":
+                res = n1 / n2
+                break;
+        }
+        
+        
+    let v1 = document.getElementById("val3")
+    v1.value = res
+    }
+    function reset(){
+        let form = document.getElementById("form1")
+        form.reset()
+
+    }
+        
+
+        
+    
+</script>    
+</body>
+
+</html>

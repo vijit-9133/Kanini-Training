@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCourseHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+.webpage-name {
+    font-family: 'Pacifico', cursive; 
+    font-size: 1.8rem; 
+    color: #007bff; 
+}
+
+.navbar-brand img {
+    height: 150px; 
+    width: 150px; 
+    
+}
+#welcomeMessage {
+    font-weight: bold;
+    color: #28a745; 
+    font-size: 1.1rem;
+}
+ .answer-option {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #34495e;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .answer-option:hover {
+            background-color: #e2e6ea;
+            border-color: #d3d7dc;
+            transform: translateY(-1px);
+        }
+
+        .answer-option.selected {
+            background-color: #cfe2ff; 
+            border-color: #9ec5fe;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .answer-option.correct {
+            background-color: #d4edda; 
+            border-color: #28a745;
+            color: #155724;
+            font-weight: 600;
+        }
+
+        .answer-option.incorrect {
+            background-color: #f8d7da; 
+            border-color: #dc3545;
+            color: #721c24;
+            font-weight: 600;
+        }
+
+        #quizFeedback {
+            font-weight: 500;
+        }
+
+        #quizSettingsMessage {
+            color: #dc3545; 
+            font-weight: 500;
+        }
+
+        #quiz-results p.h3 {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        #finalScore, #maxScore {
+            color: #6a82fb; 
+            font-weight: 700;
+        }
+</style>
+<body>
+    <section id="header_1">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 ">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="Project.html">
+                    <img src="1.png" alt="The Course Hub Icon" class="me-2">
+                    <span class="webpage-name">TheCourseHub</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-0 mb-lg-0"> <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#courses-section">Courses</a> </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#highlights-carousel">Highlights</a> </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#quiz-section">Quiz</a> </li>
+                    </ul>
+
+                    <ul class="navbar-nav"> <li class="nav-item">
+                    <a id="authButton" class="btn btn-primary" href="login.html">Login/Signup</a>
+                            <span id="welcomeMessage" class="navbar-text ms-3 d-none"></span>                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    </section>
+
+    <main class="container-fluid my-5 ">
+        
+        <h1 class="text-center mt-1">Welcome to TheCourseHub!</h1>
+        <p class="text-center">Explore our wide range of courses.</p>
+
+        <section id="highlights-carousel" class="mb-5">
+    <h2 class="text-center mb-4">Top Course Highlights</h2>
+
+    <div id="courseHighlightsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#courseHighlightsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#courseHighlightsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#courseHighlightsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="5.jpg" class="d-block w-100" alt="Web Development Basics">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="display-5 fw-bold">Master Web Development</h3>
+                    <p class="lead">Build stunning websites from scratch with HTML, CSS, and JavaScript. Start your coding journey today!</p>
+                    <a href="#" class="btn btn-lg btn-success mt-3">Explore Now</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="4.jpg" class="d-block w-100" alt="Data Visualization Course">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="display-5 fw-bold">Deep Dive into Data Science</h3>
+                    <p class="lead">Uncover insights from data using Python and R. Become a data-driven expert.</p>
+                    <a href="#" class="btn btn-lg btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="3.jpg" class="d-block w-100" alt="Art & Crafts">
+                <div class="carousel-caption d-none d-md-block"> <h3 class="display-5 fw-bold">Unlock Your Creative Potential</h3>
+                    <p class="lead">Learn the principles of graphic design, UI/UX, and visual communication.</p>
+                    <a href="#" class="btn btn-lg btn-success mt-3">View Course</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#courseHighlightsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#courseHighlightsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+    <section id="courses-section" class="mb-5">
+            <h2 class="text-center mb-4">Explore Our Courses</h2>
+            <div id="courseCardsCarousel" class="carousel slide" data-bs-ride="false"> <div class="carousel-indicators" id="courseCarouselIndicators">
+                    </div>
+                <div class="carousel-inner" id="courseCardsCarouselInner">
+                    </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#courseCardsCarousel" data-bs-slide="prev" style="color: #c6c8ca;">
+                    <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#courseCardsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section id="quiz-section" class="py-5">
+            <h2 class="text-center mb-4">Test Your Knowledge!</h2>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+
+                        <div id="quiz-settings" class="card p-4 shadow-sm mb-4">
+                            <h4 class="mb-3">Quiz Configuration</h4>
+                            <form id="quizSettingsForm">
+                                <div class="mb-3">
+                                    <label for="quizAmount" class="form-label">Number of Questions (1-10)</label>
+                                    <input type="number" class="form-control" id="quizAmount" value="5" min="1" max="10" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="quizCategory" class="form-label">Category</label>
+                                    <select class="form-select" id="quizCategory" required>
+                                        <option value="any">Any Category</option>
+                                        </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="quizDifficulty" class="form-label">Difficulty</label>
+                                    <select class="form-select" id="quizDifficulty" required>
+                                        <option value="any">Any Difficulty</option>
+                                        <option value="easy">Easy</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="hard">Hard</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Question Type</label>
+                                    <div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="quizType" id="typeAny" value="any" checked>
+                                            <label class="form-check-label" for="typeAny">Any Type</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="quizType" id="typeMultiple" value="multiple">
+                                            <label class="form-check-label" for="typeMultiple">Multiple Choice</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="quizType" id="typeTrueFalse" value="boolean">
+                                            <label class="form-check-label" for="typeTrueFalse">True / False</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100" id="startQuizBtn">Start Quiz</button>
+                                <p id="quizSettingsMessage" class="text-center mt-3 d-none text-danger"></p>
+                            </form>
+                        </div>
+
+                        <div id="quiz-display" class="card p-4 shadow-sm d-none">
+                            <h4 class="mb-3">Question <span id="currentQuestionNumber">1</span> of <span id="totalQuestions">5</span></h4>
+                            <p id="questionText" class="lead mb-4"></p>
+                            <div id="answerOptions" class="d-grid gap-2">
+                                </div>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span id="quizFeedback" class="text-muted"></span>
+                                <button id="nextQuestionBtn" class="btn btn-success d-none">Next Question</button>
+                            </div>
+                        </div>
+
+                        <div id="quiz-results" class="card p-4 shadow-sm text-center d-none">
+                            <h4 class="mb-3">Quiz Complete!</h4>
+                            <p class="h3">Your Score: <span id="finalScore">0</span> / <span id="maxScore">0</span></p>
+                            <button id="playAgainBtn" class="btn btn-primary mt-3">Play Again</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+<a href="#header_1"><button id="backToTopBtn" class="btn btn-primary rounded-circle shadow">
+        &#9650; </button></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="courseData.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

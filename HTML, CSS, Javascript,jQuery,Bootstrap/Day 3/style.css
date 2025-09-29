@@ -1,0 +1,55 @@
+.box{
+    margin:30px;
+    background-color: lightgreen;
+    padding: 30px;
+    width: 500 px;
+    animation: samp1 5s infinite alternate;
+    
+    
+
+}
+.flex{
+    display: flex;
+    background-color: bisque;
+    margin:20px;
+    padding:10px;
+}
+.flex div{
+    background-color: blueviolet;
+    margin:5px;
+    padding:20px;
+}
+.grid_container{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: bisque;
+}
+.grid_container .item{
+    margin: 10px;
+    padding: 30px;
+    background-color: aqua;
+
+}
+.container{
+    height:500px;
+    width:500px;
+    background-color: aqua;
+    perspective: 600px;
+    perspective-origin: 50% 50%;
+}
+.box1{
+    height:250px;
+    width: 250px;
+    background-color: green;
+    animation:samp1 5s infinite  ;
+}
+
+/*Animations*/
+/* @keyframes samp1{
+    from{
+        transform:matrix(1,0,0,1,0,0);
+    }
+    to{
+        transform:matrix(1,0.5,-0.5,1,50,0);
+    }
+} */

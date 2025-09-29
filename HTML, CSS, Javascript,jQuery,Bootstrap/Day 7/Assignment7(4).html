@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Movie Seat Booking</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #fff;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #f9f9f9;
+    }
+
+    .screen {
+      background: #f1c40f;
+      color: #000;
+      padding: 8px;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 25px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #f1c40f;
+    }
+
+    .seats-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .seat {
+      width: 40px;
+      height: 40px;
+      background: #444;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 40px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px rgba(255,255,255,0.1);
+    }
+
+    .seat:hover:not(.taken):not(.selected) {
+      background: #666;
+      transform: scale(1.05);
+    }
+
+    .seat.selected {
+      background: #27ae60;
+      box-shadow: 0 0 10px #27ae60;
+    }
+
+    .seat.taken {
+      background: #e74c3c;
+      cursor: not-allowed;
+      color: #fff;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #3498db;
+      border: none;
+      padding: 12px 24px;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .alert {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .alert-success {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .alert-warning {
+      background-color: #f39c12;
+      color: white;
+    }
+
+    .price-box {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .price-box input {
+      max-width: 200px;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 16px;
+      padding: 6px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      .seats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .seat {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+      }
+    }
+    .toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast-box {
+  background-color: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  animation: fadeIn 0.4s ease;
+}
+
+.toast-warning {
+  background-color: #f39c12;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>🎬 Book Your Movie Seat</h2>
+
+  <div class="screen">SCREEN</div>
+
+  <div class="seats-grid" id="seatLayout"></div>
+
+  <div class="price-box">
+    <label for="totalAmount">Total Price (₹):</label><br>
+    <input type="text" id="totalAmount" readonly>
+  </div>
+
+  <div class="actions">
+    <button id="bookBtn">Book Selected Seats</button>
+  </div>
+
+
+</div>
+
+<script>
+  const rows = 5;
+  const cols = 8;
+  const maxSeats = 10;
+  const ticketPrice = 200;
+
+  $(document).ready(function () {
+    const seatContainer = $('#seatLayout');
+    let bookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || [];
+
+    // Create seats
+    for (let r = 1; r <= rows; r++) {
+      for (let c = 1; c <= cols; c++) {
+        const seatId = `R${r}S${c}`;
+        const seat = $('<div>')
+          .addClass('seat')
+          .attr('id', seatId)
+          .text(c);
+
+        if (bookedSeats.includes(seatId)) {
+          seat.addClass('taken');
+        }
+
+        seatContainer.append(seat);
+      }
+    }
+
+    // Seat click handler
+    $('.seat').on('click', function () {
+      if ($(this).hasClass('taken')) return;
+
+      if (!$(this).hasClass('selected') && $('.seat.selected').length >= maxSeats) {
+        showStatus(`You can only book up to ${maxSeats} seats.`, 'warning');
+        return;
+      }
+
+      $(this).toggleClass('selected');
+      updateTotal();
+    });
+
+    // Booking handler
+    $('#bookBtn').click(function () {
+      const selected = $('.seat.selected').map(function () {
+        return $(this).attr('id');
+      }).get();
+
+      if (selected.length === 0) {
+        showStatus('Please select at least one seat.', 'warning');
+        return;
+      }
+
+      bookedSeats = [...bookedSeats, ...selected];
+      localStorage.setItem('bookedSeats', JSON.stringify(bookedSeats));
+
+      $('.seat.selected').each(function () {
+        $(this).removeClass('selected').addClass('taken');
+      });
+
+      $('#totalAmount').val('');
+      showStatus(`Seats booked: ${selected.join(', ')}`, 'success');
+    });
+
+    function updateTotal() {
+      const count = $('.seat.selected').length;
+      $('#totalAmount').val(count * ticketPrice);
+    }
+
+    function showStatus(msg, type) {
+  const toastId = `toast-${Date.now()}`;
+
+  const toast = $(`
+    <div id="${toastId}" class="toast-box toast-${type}">
+      ${msg}
+    </div>
+  `);
+
+  $('#toastContainer').append(toast);
+
+  setTimeout(() => {
+    $(`#${toastId}`).fadeOut(500, function () {
+      $(this).remove();
+    });
+  }, 5000);
+}
+  });
+</script>
+  <div id="toastContainer" class="toast-container"></div>
+
+</body>
+</html>

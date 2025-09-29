@@ -1,0 +1,21 @@
+function fetchData() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      let data = { name: "Vijit", age: 22 };
+      resolve(data);
+
+      reject("Error: Could not fetch data!");
+    }, 2000);
+  });
+}
+
+async function getData() {
+  try {
+    let result = await fetchData();
+    console.log("Data received:", result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getData();

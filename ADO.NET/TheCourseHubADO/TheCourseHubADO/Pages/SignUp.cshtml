@@ -1,0 +1,52 @@
+﻿@page
+@model TheCourseHubADO.Pages.SignUpModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow-lg border-0 rounded-3" style="max-width: 500px; width: 100%;">
+        <div class="card-body p-4">
+            <h1 class="card-title text-center mb-4 text-primary fw-bold">Create Your Account</h1>
+
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <div class="alert alert-danger text-center" role="alert">
+                    @Model.Message
+                </div>
+            }
+
+            <form method="post" asp-page="/SignUp">
+                <div class="mb-3">
+                    <label asp-for="NewUser.Username" class="form-label">Username</label>
+                    <input asp-for="NewUser.Username" class="form-control" placeholder="Choose a username" />
+                    <span asp-validation-for="NewUser.Username" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NewUser.Email" class="form-label">Email</label>
+                    <input asp-for="NewUser.Email" class="form-control" type="email" placeholder="Enter your email" />
+                    <span asp-validation-for="NewUser.Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NewUser.Password" class="form-label">Password</label>
+                    <input asp-for="NewUser.Password" class="form-control" type="password" placeholder="Create a password" />
+                    <span asp-validation-for="NewUser.Password" class="text-danger small"></span>
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Sign Up
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <a asp-page="/SignIn" class="text-decoration-none fw-bold text-secondary">
+                        Already have an account? <span class="text-primary">Sign In</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

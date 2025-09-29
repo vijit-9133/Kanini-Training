@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands On Day 3</title>
+    <script src="practice1.js"></script>
+</head>
+<style>
+    iframe{
+          
+          animation: gradient 5s ease infinite;
+          background: linear-gradient(-45deg, #ff6ec4, #7873f5, #66ffe7, #fddb92);
+          background-size: 400% 400%;
+          
+
+    }
+    @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+    body{
+        align-content: center;
+    }
+</style>
+<body>
+<div id=container1>
+</div>
+<center>
+<div id="action">
+    <button id="click" onclick="Display()">Click me!</button>
+    </div>    
+<div id="jokes">
+    <iframe id="myframe" style="width:80% height=200px;border: 2px solid";></iframe>
+    </div></center>
+</div>
+</body>
+</html>

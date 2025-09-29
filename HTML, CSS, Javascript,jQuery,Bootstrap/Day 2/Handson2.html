@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Hands On</title>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+table {
+  text-align: left;
+  margin-left: 35%;
+  background-color: #F0F0F0;
+}
+
+td {
+  text-align: center;
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+}
+.tr1 {
+  background-color: #ff0080;
+}
+
+.theader {
+  background-color: #800000;
+}
+
+#ex1,
+#vg1 {
+  background-color: #00ff00;
+}
+
+#go1 {
+  background-color: #ffff00;
+}
+
+#av1 {
+  background-color: #d3d3d3;
+  color: #ffffff;
+}
+
+#bal {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+table tr:nth-child(odd):not(:first-child){
+    background-color: #ff0000;
+}
+table tr:nth-child(even){
+    background-color: #137b07;
+}
+
+
+</style>
+<body>
+    <h1 id=tr1 style="text-align: center;">Trainer's Feedback Rating Chart</h1>
+    <h2 id="theader">Trainer's Name: Elite Parker </h2>
+<table border="2px">
+    <tr><th>S.No</th><td>Training Module Name</td><td>Overall Rating</td><td style="background-color: aqua;">Feedback</td></tr>
+    <tr><th>1</th><td id="av1">HTML,CSS & JavaScript</td><td>5</td><td>Excellent</td></tr>
+    <tr><th>2</th><td id="go1">Basic Java Programming</td><td>4</td><td>Very Good</td></tr>
+    <tr><th>3</th><td id="vg1">Advanced Java Programming</td><td>3</td><td>Good </td></tr>
+    <tr><th>4</th><td>UNIX Shell Programming </td><td>2</td><td>Average</td></tr>
+    <tr><th>5</th><td id="ex1">Python Programming </td><td>1</td><td>Below Average</td></tr>
+
+
+
+</table>
+
+    
+</body>
+</html>

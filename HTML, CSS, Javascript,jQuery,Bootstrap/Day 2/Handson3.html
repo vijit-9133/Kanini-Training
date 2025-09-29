@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>bookform</title>
+</head>
+<style> 
+    body{
+        background-color: bisque;
+    }
+    
+</style>
+<body>
+     <form>
+         <fieldset>
+             <legend>Customer Info</legend>
+
+             <label for="cusname">Name:</label>
+             <input type="text" name="cusname" id="cusname" required
+placeholder="Enter your  name"><br>
+
+             <label for="telephone">Telephone:</label>
+             <input type="tel" name="telephone" id="telephone"
+pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Pattern:
+234-567-8910"><br>
+
+             <label for="mail">Email Address:</label>
+             <input type="email" name="mail" id="mail" placeholder="Enter
+your email address" required><br>
+         </fieldset>
+         <fieldset>
+             <legend>Books</legend>
+
+             <input type="text" name="book" id="book" autocomplete="on"
+list="booklst">
+             <datalist id="booklst">
+                 <option value="HTML5 - Bruce Lawson and Remy Sharp">
+                 <option value="HTML5 - Bruce Lawson and Remy Sharp">
+                 <option value="HTML5 - Up and Running - Mark Pilgrim">
+                 <option value="Head First HTML5 Programming - Eric
+Freeman">
+                 <option value="Mastering HTML, CSS and JavaScript - Laura
+Lemay">
+             </datalist>
+
+             <label for="quantity">Quantity (Maximum 5):</label>
+             <input type="number" name="quantity" id="quantity" min="1"
+max="5">
+         </fieldset>
+         <button type="submit" name="submit" onclick="alert('You have successfully submitted the Book Form')">Submit</button>
+     </form>
+</body>
+</html>
