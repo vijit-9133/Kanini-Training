@@ -1,0 +1,6 @@
+@ManytoManyWithoutJunction_HostAddress = http://localhost:5017
+
+GET {{ManytoManyWithoutJunction_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
